@@ -27,7 +27,7 @@ spec:
               mountPath: /persistentvolumes
           env:
             - name: PROVISIONER_NAME
-              value: nfs-storage
+              value: utility.bddemo.udf/nfs
             - name: NFS_SERVER
               value: 10.1.1.10
             - name: NFS_PATH

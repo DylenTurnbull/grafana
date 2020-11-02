@@ -4,6 +4,6 @@ metadata:
   name: managed-nfs-storage
   annotations:
      storageclass.kubernetes.io/is-default-class: "true"
-provisioner: nfs-storage # or choose another name, must match deployment's env PROVISIONER_NAME'
+provisioner: utility.bddemo.udf/nfs # or choose another name, must match deployment's env PROVISIONER_NAME'
 parameters:
   archiveOnDelete: "false"
