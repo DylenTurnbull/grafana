@@ -57,18 +57,23 @@ update the admin password as seen below
 adminUser: admin
 adminPassword: updatethispassword
 ```
-Enable persistence
+Enable persistence (not working)
 ```
 persistence:
    enabled: true
 ```
-Install Grafana
+Install Grafana using Helm 3
+Create a grafana namespace
 ```
-helm2 install stable/grafana --name grafana --values /tmp/grafana.values --namespace grafana
+
+```
+Run the following command while in the grafana namespace
+```
+helm install grafana grafana/grafana --values /home/ubuntu/Documents/source/github/grafana/helm/grafana.values
 ```
 To remove helm installs (helm2 delete [install name] --purge)
 
-eg.
+Helm 3 run the command below while in the grafana namespace
 ```
-helm2 delete grafana --purge
+helm uninstall grafana
 ```
