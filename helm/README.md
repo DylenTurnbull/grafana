@@ -66,7 +66,7 @@ Install Grafana
 ```
 helm2 install stable/grafana --name grafana --values /tmp/grafana.values --namespace grafana
 ```
-To remove helm installs (helm2 remove [install name] --purge)
+To remove helm installs (helm2 delete [install name] --purge)
 
 eg.
 ```
