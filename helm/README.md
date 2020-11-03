@@ -24,9 +24,17 @@ helm2 inspect values stable/prometheus > /tmp/prometheus.values
 ```
 Find server section under type and add the following 
 ```
-servicePort: 80
-nodePort:32322
-type: NodePort
+    ## List of IP addresses at which the Prometheus server service is available
+    ## Ref: https://kubernetes.io/docs/user-guide/services/#external-ips
+    ##
+    externalIPs: []
+
+    loadBalancerIP: ""
+    loadBalancerSourceRanges: []
+    servicePort: 80
+    sessionAffinity: None
+    nodePort: 32322
+    type: NodePort
 ```
 Install prometheus
 ```
@@ -57,4 +65,10 @@ persistence:
 Install Grafana
 ```
 helm2 install stable/grafana --name grafana --values /tmp/grafana.values --namespace grafana
+```
+To remove helm installs (helm2 remove [install name] --purge)
+
+eg.
+```
+helm2 remove grafana --purge
 ```
