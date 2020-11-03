@@ -70,5 +70,5 @@ To remove helm installs (helm2 remove [install name] --purge)
 
 eg.
 ```
-helm2 remove grafana --purge
+helm2 delete grafana --purge
 ```
