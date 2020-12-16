@@ -37,9 +37,15 @@ Find server section under type and add the following
     type: NodePort
 ```
 Install prometheus
+Linux
 ```
 helm2 install stable/prometheus --name prometheus --values /tmp/prometheus.values --namespace prometheus
 ```
+Windows
+```
+helm2 install stable/prometheus --name prometheus --values .\prometheus.values --namespace prometheus
+```
+
 ```
 helm2 inspect values stable/grafana > /tmp/grafana.values
 ```
