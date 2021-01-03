@@ -37,15 +37,9 @@ Find server section under type and add the following
     type: NodePort
 ```
 Install prometheus
-Linux
 ```
 helm2 install stable/prometheus --name prometheus --values /tmp/prometheus.values --namespace prometheus
 ```
-Windows
-```
-helm2 install stable/prometheus --name prometheus --values .\prometheus.values --namespace prometheus
-```
-
 ```
 helm2 inspect values stable/grafana > /tmp/grafana.values
 ```
@@ -82,4 +76,17 @@ To remove helm installs (helm2 delete [install name] --purge)
 Helm 3 run the command below while in the grafana namespace
 ```
 helm uninstall grafana
+```
+
+
+Kube Prometheus Stack
+
+```
+helm install kube-prometheus-stack prometheus-community/kube-prometheus-stack --version 12.8.0
+```
+
+
+Prometheus
+```
+helm install my-helm install my-prometheus prometheus-community/prometheus --version 13.0.1 prometheus-community/prometheus --version 13.0.1
 ```
