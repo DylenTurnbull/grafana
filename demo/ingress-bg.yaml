@@ -1,18 +1,24 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
+  namespace: default
   name: ingress-bg
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  ingressClassName: nginx # use only with k8s version >= 1.18.0 
   rules:
   - host: blue.bddemo.udf
     http:
       paths:
-      - backend:
+      - path: /blue
+        backend:
           serviceName: nginx-deploy-blue
           servicePort: 80
   - host: green.bddemo.udf
     http:
       paths:
-      - backend:
+      - path: /green
+        backend:
           serviceName: nginx-deploy-green
           servicePort: 80
