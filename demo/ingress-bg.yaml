@@ -1,18 +1,18 @@
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-resource-2
+  name: ingress-bg
 spec:
   rules:
-  - host: one.bddemo.udf
+  - host: blue.bddemo.udf
     http:
       paths:
       - backend:
-          serviceName: nginx-deploy-one
+          serviceName: nginx-deploy-blue
           servicePort: 80
-  - host: two.bddemo.udf
+  - host: green.bddemo.udf
     http:
       paths:
       - backend:
-          serviceName: nginx-deploy-two
+          serviceName: nginx-deploy-green
           servicePort: 80

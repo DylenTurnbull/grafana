@@ -3,16 +3,16 @@ kind: Deployment
 metadata:
   labels:
     run: nginx
-  name: nginx-deploy-two
+  name: deployment-green
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: nginx-two
+      run: nginx-green
   template:
     metadata:
       labels:
-        run: nginx-two
+        run: nginx-green
     spec:
       volumes:
       - name: webdata
@@ -23,7 +23,7 @@ spec:
         volumeMounts:
         - name: webdata
           mountPath: "/webdata"
-        command: ["/bin/sh", "-c", 'echo "<h1>I am <font color=orange>TWO</font></h1>" > /webdata/index.html']
+        command: ["/bin/sh", "-c", 'echo "<h1>I am <font color=green>GREEN</font></h1>" > /webdata/index.html']
       containers:
       - image: nginx
         name: nginx
